@@ -28,9 +28,13 @@ PRODUCT_PACKAGES += \
     tune2fs_ramdisk \
     resize2fs_ramdisk
 
+ifeq ($(TARGET_KERNEL_VERSION),4.19)
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
-
+# Use FUSE passthrough
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.fuse.passthrough.enable=true
+endif
 # Screen density
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
