@@ -18,6 +18,9 @@ $(call inherit-product, device/xiaomi/vince/device.mk)
 # Kernel
 TARGET_KERNEL_VERSION := 4.19
 
+# neverallows
+SELINUX_IGNORE_NEVERALLOWS := true
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-lineage
