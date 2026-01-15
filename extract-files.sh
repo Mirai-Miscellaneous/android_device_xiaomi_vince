@@ -8,6 +8,9 @@
 
 function blob_fixup() {
     case "${1}" in
+        vendor/bin/mm-qcamera-daemon)
+            sed -i 's|data/misc/camera|data/vendor/qcam|g' "${2}"
+            ;;
         vendor/lib/libmmcamera2_iface_modules.so)
             # Always set 0 (Off) as CDS mode in iface_util_set_cds_mode
             sed -i -e 's|\x1d\xb3\x20\x68|\x1d\xb3\x00\x20|g' "${2}"
@@ -24,6 +27,10 @@ function blob_fixup() {
             "${PATCHELF_0_8}" --remove-needed "libprotobuf-cpp-lite.so" "${2}"
             ;;
     esac
+
+    if [[ "${1}" =~ ^vendor/lib/libmmcamera.*\.so$ ]]; then
+        sed -i 's|data/misc/camera|data/vendor/qcam|g' "${2}"
+    fi
 }
 
 # If we're being sourced by the common script that we called,
