@@ -22,6 +22,12 @@ PRODUCT_PACKAGES += \
 TARGET_SCREEN_HEIGHT := 2160
 TARGET_SCREEN_WIDTH := 1080
 
+# Dynamic Partitions
+PRODUCT_BUILD_SUPER_PARTITION := false
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_RETROFIT_DYNAMIC_PARTITIONS := true
+
+
 # Screen density
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
@@ -51,6 +57,7 @@ PRODUCT_COPY_FILES += \
 
 # Rootdir
 PRODUCT_PACKAGES += \
+    fstab.qcom_ramdisk \
     init.xiaomi.device.rc
 
 # Soong namespaces

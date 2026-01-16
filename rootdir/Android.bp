@@ -12,6 +12,13 @@ prebuilt_etc {
     vendor: true,
 }
 
+prebuilt_etc {
+    name: "fstab.qcom_ramdisk",
+    src: "etc/fstab.qcom",
+    installable: true,
+    ramdisk: true,
+}
+
 // Init scripts
 
 prebuilt_etc {
