@@ -20,6 +20,9 @@ function blob_fixup() {
         vendor/lib/libvidhance_gyro.so)
             "${PATCHELF}" --replace-needed "android.frameworks.sensorservice@1.0.so" "android.frameworks.sensorservice@1.0-v27.so" "${2}"
             ;;
+        vendor/lib/libmmcamera_ppeiscore.so)
+	    "${PATCHELF}" --add-needed "libui_shim.so" "${2}"
+	        ;;
         vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0-service.so)
             "${PATCHELF_0_8}" --remove-needed "libprotobuf-cpp-lite.so" "${2}"
             ;;
