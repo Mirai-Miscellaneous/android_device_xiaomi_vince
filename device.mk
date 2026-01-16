@@ -53,11 +53,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     init.xiaomi.device.rc
 
-# Shims
-PRODUCT_PACKAGES += \
-    libui_shim \
-    libui_shim.vendor:32
-
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
