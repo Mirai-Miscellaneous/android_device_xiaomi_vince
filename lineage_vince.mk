@@ -18,6 +18,9 @@ $(call inherit-product, device/xiaomi/vince/device.mk)
 # Kernel
 TARGET_KERNEL_VERSION := 4.19
 
+# Yaoyoro Mentena
+YAOYORO_MAINTAINER := Mika
+
 # neverallows
 SELINUX_IGNORE_NEVERALLOWS := true
 
